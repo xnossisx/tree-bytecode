@@ -1,4 +1,4 @@
-# introduction-and-disclaimer
+# Introduction and disclaimer
 
 Hello! This is my first time putting any of my work on a public repository, and I'm pretty new and inexperienced with programming, 
 so I'll probably have a lot of mistakes in here.
