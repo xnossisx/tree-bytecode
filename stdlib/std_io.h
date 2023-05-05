@@ -1,5 +1,8 @@
 #pragma once
-#include "utils.h"
+#include "stddeps.h"
+import utils;
+
+
 #include <conio.h> //unfortunately, we need this to get a single character
 
 //Gets input from the user
@@ -47,18 +50,18 @@ void io_clearConsole()
 
 void io_cout()
 {
-	string firstArg = getArrayIndex(getVariable(ARGUMENT_VARIABLE), 0);
+	string firstArg = getArrayIndex(getVariable(PARAMETER_VARIABLE), 0);
 	cout << convertToPrintableStr(firstArg);
 }
 
 void io_getKeyState()
 {
-	string firstArg = getArrayIndex(getVariable(ARGUMENT_VARIABLE), 0);
+	string firstArg = getArrayIndex(getVariable(PARAMETER_VARIABLE), 0);
 	if (firstArg[0] != NUM32)
 	{
 		fatalError(RUNTIME_INVALID_PARAM_TYPE);
 	}
 
-	int keyType = stringToLongLong(firstArg.substr(1));
-	registers[RETURN_REGISTER] = (char)NUM32 + longLongToString(GetKeyState(keyType), 2);
+	int keyType = stringToUI64(firstArg.substr(1));
+	registers[RETURN_REGISTER] = (char)NUM32 + numericalToString(GetKeyState(keyType));
 }

@@ -1,4 +1,4 @@
-﻿#include "stddeps.h"
+﻿#include "stdlib/stddeps.h"
 #include "treeEx.h"
 
 export module utils;
@@ -33,7 +33,7 @@ export namespace error_info {
 //Numerical Definitions
 
 export auto RETURN_REGISTER = 127;
-export auto ARGUMENT_VARIABLE = ULLONG_MAX;
+export auto PARAMETER_VARIABLE = ULLONG_MAX;
 export auto COMMAND_REGISTER = 255;
 export auto ERROR_REGISTER = 128;
 
@@ -132,7 +132,7 @@ export string convertToProperStr(string x)
 
 /* Takes the direct value of a vartypes::STRING or vartypes::ARRAY, returns its length 
    
-   @@value: A type-augmented value*/
+   @value: A type-augmented value*/
 export ulonger getPrimitiveLength(string value) {
 	return stringToUI64(value.substr(1, 8));
 }

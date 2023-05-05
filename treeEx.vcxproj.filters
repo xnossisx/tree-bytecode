@@ -33,27 +33,39 @@
     <ClInclude Include="stddeps.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="libmain.h">
+    <ClInclude Include="stdlib\libmain.h">
       <Filter>Source Files\stdlib</Filter>
     </ClInclude>
-    <ClInclude Include="std_files.h">
+    <ClInclude Include="stdlib\std_array.h">
       <Filter>Source Files\stdlib</Filter>
     </ClInclude>
-    <ClInclude Include="std_string.h">
+    <ClInclude Include="stdlib\std_files.h">
       <Filter>Source Files\stdlib</Filter>
     </ClInclude>
-    <ClInclude Include="std_array.h">
+    <ClInclude Include="stdlib\std_io.h">
       <Filter>Source Files\stdlib</Filter>
     </ClInclude>
-    <ClInclude Include="std_io.h">
+    <ClInclude Include="stdlib\std_string.h">
       <Filter>Source Files\stdlib</Filter>
     </ClInclude>
-    <ClInclude Include="std_time.h">
+    <ClInclude Include="stdlib\std_time.h">
+      <Filter>Source Files\stdlib</Filter>
+    </ClInclude>
+    <ClInclude Include="stdlib\stddeps.h">
+      <Filter>Source Files\stdlib</Filter>
+    </ClInclude>
+    <ClInclude Include="resources\resource.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resources\resource1.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdlib\std_primitive.h">
       <Filter>Source Files\stdlib</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="icon1.ico">
+    <Image Include="resources\icon1.ico">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

@@ -1,12 +1,13 @@
 #pragma once
-#include "utils.h"
+#include "stddeps.h"
+import utils;
 
 void string_substr()
 {
 	//Get variables
-	string firstArg = getArrayIndex(getVariable(ARGUMENT_VARIABLE), 0);
-	string secondArg = getArrayIndex(getVariable(ARGUMENT_VARIABLE), 1);
-	string thirdArg = getArrayIndex(getVariable(ARGUMENT_VARIABLE), 2);
+	string firstArg = getArrayIndex(getVariable(PARAMETER_VARIABLE), 0);
+	string secondArg = getArrayIndex(getVariable(PARAMETER_VARIABLE), 1);
+	string thirdArg = getArrayIndex(getVariable(PARAMETER_VARIABLE), 2);
 
 	if (secondArg[0] != VARNAME && secondArg[0] != REGISTER && secondArg[0] != NUM64)
 	{
@@ -18,14 +19,14 @@ void string_substr()
 	}
 	if (secondArg[0] == VARNAME)
 	{
-		secondArg = getVariable(stringToLongLong(secondArg.substr(1)));
+		secondArg = getVariable(stringToUI64(secondArg.substr(1)));
 	}
 	if (secondArg[0] != NUM64)
 	{
 		fatalError(RUNTIME_INVALID_PARAM_TYPE);
 	}
 
-	longer indexStart = stringToLongLong(thirdArg.substr(1));
+	longer indexStart = stringToUI64(thirdArg.substr(1));
 
 	if (thirdArg[0] != VARNAME && thirdArg[0] != REGISTER && thirdArg[0] != NUM64)
 	{
@@ -37,14 +38,14 @@ void string_substr()
 	}
 	if (thirdArg[0] == VARNAME)
 	{
-		thirdArg = getVariable(stringToLongLong(thirdArg.substr(1)));
+		thirdArg = getVariable(stringToUI64(thirdArg.substr(1)));
 	}
 	if (thirdArg[0] != NUM64)
 	{
 		fatalError(RUNTIME_INVALID_PARAM_TYPE);
 	}
 
-	longer indexEnd = stringToLongLong(thirdArg.substr(1));
+	longer indexEnd = stringToUI64(thirdArg.substr(1));
 
 	string strToBeChanged;
 	if (firstArg[0] != VARNAME && firstArg[0] != REGISTER)
@@ -57,16 +58,25 @@ void string_substr()
 	}
 	if (firstArg[0] == VARNAME)
 	{
-		strToBeChanged = getVariable(stringToLongLong(firstArg.substr(1)));
+		strToBeChanged = getVariable(stringToUI64(firstArg.substr(1)));
 	}
-	strToBeChanged = convertToProperStr(strToBeChanged);
+		
+	ulonger strLen = getPrimitiveLength(strToBeChanged);
 
-	registers[RETURN_REGISTER] = convertToSaveableStr(strToBeChanged.substr(indexStart, indexEnd));
+	strToBeChanged = convertToProperStr(strToBeChanged);
+	if (strToBeChanged == "")
+	{
+		registers[RETURN_REGISTER] = convertToSaveableStr(strToBeChanged);
+	}
+	else
+	{
+		registers[RETURN_REGISTER] = convertToSaveableStr(strToBeChanged.substr(indexStart, indexEnd));
+	}
 }
 
-void toString()
+void string_toString()
 {
-	string firstArg = getArrayIndex(getVariable(ARGUMENT_VARIABLE), 0);
+	string firstArg = getArrayIndex(getVariable(PARAMETER_VARIABLE), 0);
 
 	registers[RETURN_REGISTER] = convertToSaveableStr(convertToPrintableStr(firstArg));
 }

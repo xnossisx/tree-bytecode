@@ -40,6 +40,8 @@ export enum treeError {
 	RUNTIME_ENVIRONMENT_EXCEPTION,
 	//Given when the application throws an uncaught exception. (Error code: 14)
 	RUNTIME_APPLICATION_EXCEPTION,
+	//Given when the application cannot interpret the string correctly. (Error code: 15)
+	RUNTIME_STRING_FORMAT_EXCEPTION,
 
 };
 
