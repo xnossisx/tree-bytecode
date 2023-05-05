@@ -1,17 +1,11 @@
 # Introduction and disclaimer
 
-Hello! This is my first time putting any of my work on a public repository, and I'm pretty new and inexperienced with programming, 
-so I'll probably have a lot of mistakes in here.
-So, feel free to put in your criticism of my program somewhere. Just be nice about it.
+Hello! This is my first time putting any of my work on my own public repository, and I'm pretty inexperienced, so this program isn't of the high quality. Therefore, feel free to criticize it, but please be respectful.
 
-Hello, I'm XnossisX. I work mostly in JavaScript and C++, and for some practice, I decided to start making a programming language 
-(It's called Tree, hence the name).
+Anyways, I'm XnossisX. I work mostly in Java and C++ these days, and for some practice, I decided to start making a programming language called Tree, whose main feature is that it is "event-oriented", meaning that it would theoretically be most suitable for programming applications.
 
-This program in particular is intended to be an interpreter for bytecode that will be created from compiling Tree.
-The project is not done yet, and there should be regular edits from me.
+This program is intended to be an interpreter for bytecode that will be created from compiling Tree code. It is not done yet, so there *should* be regular edits from me. Most of the details about the structure bytecode are unwritten at the moment, but the basics can be gleaned from some of the comments that I have put in the source code.
 
 # Installation
 
-To install, download the files, and then compile from treeEx.cpp.
-
-To run any programs, including the sample programs included, use a .tree extension, and make sure to set the automatic file opener on Windows to your executable outputted from compilation.
+To install, download the files, and then compile from treeEx.cpp. Sample programs use the .tree extension.
