@@ -17,6 +17,7 @@ export namespace file_info {
 	string filePath; //stores the file path of the program
 	string curFile;//the path of the current file
 	stringstream programCode;//the stringstream of the file
+	bool programDone = false;
 }
 
 export std::string registers[256];
@@ -32,10 +33,10 @@ export namespace error_info {
 
 //Numerical Definitions
 
-export auto RETURN_REGISTER = 127;
-export auto PARAMETER_VARIABLE = ULLONG_MAX;
-export auto COMMAND_REGISTER = 255;
-export auto ERROR_REGISTER = 128;
+export auto const RETURN_REGISTER = 127;
+export auto const PARAMETER_VARIABLE = ULLONG_MAX;
+export auto const COMMAND_REGISTER = 255;
+export auto const ERROR_REGISTER = 128;
 
 
 //In Tree, types are explicitly defined in the source
@@ -385,11 +386,13 @@ export char* assignVariable(char* dpointer, data_block x)
 bool isThereVariable(longer name);
 
 //gives item directly
-export string getArrayIndex(longer name, longer index)
+export string getArrayIndex(longer name, ulonger index)
 {
 	string array = getVariable(name);
+	ulonger arrLength = getPrimitiveLength(array);
+	if (arrLength <= index || index < 0) fatalError(RUNTIME_INDEX_OUT_OF_BOUNDS);
 	string y;
-	longer posOfPointer = (index + 1) * 8;
+	ulonger posOfPointer = (index + 1) * 8;
 
 	for (int i = 0; i < 8; i++)
 	{

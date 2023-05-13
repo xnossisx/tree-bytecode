@@ -42,7 +42,7 @@ void program_pause()
 	_getch();
 }
 
-//Clears the console (in case you haven't realized already, this is the Windows version of Tree)
+//Clears the console (in case you haven't realized already, this is for Windows for now)
 void io_clearConsole()
 {
 	system("cls");

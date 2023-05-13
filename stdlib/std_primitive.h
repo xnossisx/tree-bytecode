@@ -16,3 +16,12 @@ void primitive_str_to_num() {
 		}
 	}
 }
+
+void primitive_sqrt() {
+	double val = 0.0;
+	string strForm = getArrayIndex(getVariable(PARAMETER_VARIABLE), 0);
+	if (strForm[0] == vartypes::NUMFLOAT) {
+		val = sqrt(stringToFloat(strForm.substr(1)));
+	}
+	registers[RETURN_REGISTER] = (char)vartypes::NUMFLOAT + numericalToString<double>(val);
+}

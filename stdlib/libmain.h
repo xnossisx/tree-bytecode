@@ -31,10 +31,13 @@ void initializeLibraries()
 	// Initializes std_string.h
 	DECLARE_STD_METHOD(string_substr)
 	DECLARE_STD_METHOD(string_toString)
+	DECLARE_STD_METHOD(string_indexOf)
 
 	// Initializes std_files.h
 	DECLARE_STD_METHOD(file_openFile)
 	DECLARE_STD_METHOD(file_getFileContent)
+	DECLARE_STD_METHOD(file_getSize)
+	DECLARE_STD_METHOD(file_closeFile)
 
 	// Initializes std_time.h
 	DECLARE_STD_METHOD(time_unix)
@@ -44,4 +47,8 @@ void initializeLibraries()
 	DECLARE_STD_METHOD(time_wday)
 	DECLARE_STD_METHOD(time_month)
 	DECLARE_STD_METHOD(time_year)
+
+    // Initializes std_primitive.h
+	DECLARE_STD_METHOD(primitive_str_to_num)
+	DECLARE_STD_METHOD(primitive_sqrt)
 }

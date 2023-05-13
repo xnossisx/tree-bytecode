@@ -42,7 +42,10 @@ export enum treeError {
 	RUNTIME_APPLICATION_EXCEPTION,
 	//Given when the application cannot interpret the string correctly. (Error code: 15)
 	RUNTIME_STRING_FORMAT_EXCEPTION,
-
+	//Given when the application experiences an arithmetical error. (Error code: 16)
+	RUNTIME_MATH_EXCEPTION,
+	//Given when the application attempts to access an invalid index of some structure. (Error code: 17)
+	RUNTIME_INDEX_OUT_OF_BOUNDS,
 };
 
 export const char* errorNames[] = {
@@ -60,7 +63,10 @@ export const char* errorNames[] = {
 	"RUNTIME_ARRAY_OVERFLOW",
 	"RUNTIME_NO_SUCH_FUNCTION",
 	"RUNTIME_ENVIRONMENT_EXCEPTION",
-	"RUNTIME_APPLICATION_EXCEPTION"
+	"RUNTIME_APPLICATION_EXCEPTION",
+	"RUNTIME_STRING_FORMAT_EXCEPTION",
+	"RUNTIME_MATH_EXCEPTION",
+	"RUNTIME_INDEX_OUT_OF_BOUNDS",
 };
 
 //Function used to report such instances of errors

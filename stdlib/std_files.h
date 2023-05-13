@@ -23,6 +23,20 @@ void file_openFile()
 	registers[RETURN_REGISTER] = convertObjectToString(file);
 }
 
+void file_getSize() {
+	string fileVar = getArrayIndex(getVariable(PARAMETER_VARIABLE), 0);
+	Object* fileObject = retrieveObjectFromString(fileVar);
+	std::fstream* file = reinterpret_cast<std::fstream*>(stringToUI64(getObjectProperty(fileObject, string("_file")).substr(1)));
+
+	ulonger len = getPrimitiveLength(getVariable(PARAMETER_VARIABLE)) > 1 ? stringToUI64(getArrayIndex(getVariable(PARAMETER_VARIABLE), 1).substr(1)) : ULLONG_MAX;
+
+	file->seekg(0, std::ios::end);
+	len = (len < file->tellg()) ? len : (ulonger)file->tellg();
+	file->seekg(0, std::ios::beg);
+
+	registers[RETURN_REGISTER] = (char)vartypes::NUM64 + UI64ToString(len);
+}
+
 //void file_openFileObj()
 //{
 //	string fileVar = getArrayIndex(getVariable(ARGUMENT_VARIABLE), 0);

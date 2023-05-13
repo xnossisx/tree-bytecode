@@ -74,6 +74,27 @@ void string_substr()
 	}
 }
 
+void string_indexOf() 
+{
+	string firstArg = getArrayIndex(getVariable(PARAMETER_VARIABLE), 0); // string to be searched through
+	string secondArg = getArrayIndex(getVariable(PARAMETER_VARIABLE), 1); // string to be searched for
+
+	if (getPrimitiveLength(getVariable(PARAMETER_VARIABLE)) == 3) {
+		
+	}
+
+	firstArg = retrieveValue(firstArg);
+	if (firstArg[0] != STRING)
+		fatalError(RUNTIME_INVALID_PARAM_TYPE);
+	secondArg = retrieveValue(secondArg);
+	if (secondArg[0] != STRING && secondArg[0] != CHARA)
+		fatalError(RUNTIME_INVALID_PARAM_TYPE);
+
+	longer index = firstArg.substr(1).find(secondArg.substr(1));
+
+	registers[RETURN_REGISTER] = (char)NUM64 + UI64ToString(index);
+}
+
 void string_toString()
 {
 	string firstArg = getArrayIndex(getVariable(PARAMETER_VARIABLE), 0);
