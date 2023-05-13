@@ -79,16 +79,18 @@ void string_indexOf()
 	string firstArg = getArrayIndex(getVariable(PARAMETER_VARIABLE), 0); // string to be searched through
 	string secondArg = getArrayIndex(getVariable(PARAMETER_VARIABLE), 1); // string to be searched for
 
-	if (getPrimitiveLength(getVariable(PARAMETER_VARIABLE)) == 3) {
-		
-	}
-
 	firstArg = retrieveValue(firstArg);
 	if (firstArg[0] != STRING)
 		fatalError(RUNTIME_INVALID_PARAM_TYPE);
 	secondArg = retrieveValue(secondArg);
 	if (secondArg[0] != STRING && secondArg[0] != CHARA)
 		fatalError(RUNTIME_INVALID_PARAM_TYPE);
+
+	if (getPrimitiveLength(getVariable(PARAMETER_VARIABLE)) == 3) {
+		ulonger begIndex = stringToUI64(getArrayIndex(getVariable(PARAMETER_VARIABLE), 2).substr(1));
+		firstArg = firstArg.substr(begIndex);	
+	}
+
 
 	longer index = firstArg.substr(1).find(secondArg.substr(1));
 
